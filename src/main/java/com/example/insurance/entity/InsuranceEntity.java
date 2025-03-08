@@ -21,5 +21,35 @@ public class InsuranceEntity {
     @Column(name ="Eligible_Amount")
     private double eligibility;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInsuranseType() {
+        return insuranseType;
+    }
+
+    public void setInsuranseType(String insuranseType) {
+        this.insuranseType = insuranseType;
+    }
+
+    public double getEligibility() {
+        return eligibility;
+    }
+
+    public void setEligibility(double eligibility) {
+        this.eligibility = eligibility;
+    }
 }

@@ -18,8 +18,11 @@ public class IncService implements ServiceInterface {
 
     @Override
     public String upsert(InsuranceEntity insuranceEntity) {
-        incRepo.save(insuranceEntity);
-        return "Saved Successfully";
+        InsuranceEntity insurance = incRepo.save(insuranceEntity);
+        if(insurance != null) {
+            return "Saved Successfully";
+        }
+        return null;
     }
 
 
@@ -27,7 +30,7 @@ public class IncService implements ServiceInterface {
     public InsuranceEntity getById(Integer id) {
         Optional<InsuranceEntity> fid = incRepo.findById(id);
 
-        if (fid.isPresent()){
+        if (fid.isPresent()) {
             return fid.get();
         }
         return null;
@@ -41,10 +44,10 @@ public class IncService implements ServiceInterface {
 
     @Override
     public String deleteById(Integer id) {
-        if (incRepo.existsById(id)){
+        if (incRepo.existsById(id)) {
             incRepo.deleteById(id);
             return "Deleted Successfully";
-        }else {
+        } else {
             return "No Record Found";
         }
 
